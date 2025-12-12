@@ -300,7 +300,7 @@ def compare_all_models(image, confidence_threshold):
 # ---------------------------------------
 
 def create_interface():
-    with gr.Blocks(title="🐾 Pet Segmentation with U-Net", theme=gr.themes.Soft()) as demo:
+    with gr.Blocks(title="🐾 Pet Segmentation with U-Net") as demo:
         gr.Markdown(
             """
             # 🐾 Pet Segmentation using U-Net
@@ -358,6 +358,18 @@ def create_interface():
                 inputs=[input_image, model_dropdown, show_overlay_check, confidence_slider],
                 outputs=[output_binary, output_prob, output_overlay, output_info]
             )
+            
+            # Examples section - only in first tab
+            gr.Examples(
+                examples=[
+                    ["example_pet1.jpg", "MaxPool + TransConv + BCE", True, 0.5],
+                    ["example_pet2.jpg", "Strided Conv + Upsample + Dice", True, 0.5],
+                ],
+                inputs=[input_image, model_dropdown, show_overlay_check, confidence_slider],
+                outputs=[output_binary, output_prob, output_overlay, output_info],
+                fn=predict_segmentation,
+                cache_examples=False,
+            )
         
         with gr.Tab("🔬 Compare All Models"):
             with gr.Row():
@@ -382,18 +394,6 @@ def create_interface():
                 fn=compare_all_models,
                 inputs=[compare_input, compare_threshold],
                 outputs=[compare_output, compare_info]
-            )
-        
-            # Examples section - only in this tab
-            gr.Examples(
-                examples=[
-                    ["example_pet1.jpg", "MaxPool + TransConv + BCE", True, 0.5],
-                    ["example_pet2.jpg", "Strided Conv + Upsample + Dice", True, 0.5],
-                ],
-                inputs=[input_image, model_dropdown, show_overlay_check, confidence_slider],
-                outputs=[output_binary, output_prob, output_overlay, output_info],
-                fn=predict_segmentation,
-                cache_examples=False,
             )
         
         with gr.Tab("ℹ️ About"):
@@ -451,8 +451,8 @@ if __name__ == "__main__":
     
     demo = create_interface()
     demo.launch(
-        share=True,  # Creates public link
-        server_name="0.0.0.0",  # Allows external access
+        share=False,         # Removed (not needed on HF Spaces)
+        server_name="0.0.0.0",
         server_port=7860,
         show_error=True
     )
