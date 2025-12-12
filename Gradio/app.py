@@ -1,4 +1,3 @@
-# app.py
 # Gradio App for UNet Pet Segmentation with 4 Model Variants
 
 import gradio as gr
@@ -395,6 +394,18 @@ def create_interface():
                 inputs=[compare_input, compare_threshold],
                 outputs=[compare_output, compare_info]
             )
+            # Add Example Images (no model selection, no threshold)
+            gr.Examples(
+                examples=[
+                    ["example_pet1.jpg",0.5],
+                    ["example_pet2.jpg",0.5]
+                ],
+                inputs=[compare_input,compare_threshold],
+                outputs=[compare_output, compare_info],
+                fn=compare_all_models,
+                cache_examples=False
+            )
+
         
         with gr.Tab("ℹ️ About"):
             gr.Markdown(
