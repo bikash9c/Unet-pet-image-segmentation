@@ -168,7 +168,7 @@ For each configuration:
 After training all four models, the script prints a summary of each configuration's best validation Dice.
 
 ### Training Logs
-
+```
 Using device: cuda
 
 Loading Oxford-IIIT Pet Dataset...
@@ -250,3 +250,4 @@ MP+Tr+Dice           - Best Val Dice: 0.9536
 StrConv+Tr+BCE       - Best Val Dice: 0.9553
 StrConv+Ups+Dice     - Best Val Dice: 0.9541
 ============================================================
+```
