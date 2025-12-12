@@ -1,0 +1,85 @@
+
+### Training Logs
+```
+Using device: cuda
+
+Loading Oxford-IIIT Pet Dataset...
+(First run will download ~800MB - this may take a few minutes)
+✓ Dataset loaded: 3680 images
+
+✓ Dataset processed successfully!
+  - Train samples: 3312
+  - Val samples:   368
+  - First image shape: torch.Size([3, 128, 128])
+  - First mask shape:  torch.Size([1, 128, 128])
+
+
+============================================================
+Training Model 1/4: MP+Tr+BCE
+============================================================
+Epoch 1/10: TrainLoss=0.3377 | ValLoss=0.2886 | ValDice=0.9423
+Epoch 2/10: TrainLoss=0.2525 | ValLoss=0.2456 | ValDice=0.9460
+Epoch 3/10: TrainLoss=0.2236 | ValLoss=0.2251 | ValDice=0.9504
+Epoch 4/10: TrainLoss=0.2083 | ValLoss=0.2194 | ValDice=0.9511
+Epoch 5/10: TrainLoss=0.1971 | ValLoss=0.2074 | ValDice=0.9525
+Epoch 6/10: TrainLoss=0.1897 | ValLoss=0.2022 | ValDice=0.9541
+Epoch 7/10: TrainLoss=0.1821 | ValLoss=0.2044 | ValDice=0.9535
+Epoch 8/10: TrainLoss=0.1760 | ValLoss=0.1998 | ValDice=0.9541
+Epoch 9/10: TrainLoss=0.1691 | ValLoss=0.1978 | ValDice=0.9553
+Epoch 10/10: TrainLoss=0.1626 | ValLoss=0.2091 | ValDice=0.9543
+  ✓ Model saved: MP_Tr_BCE.pth
+
+============================================================
+Training Model 2/4: MP+Tr+Dice
+============================================================
+Epoch 1/10: TrainLoss=0.1948 | ValLoss=0.1455 | ValDice=0.9398
+Epoch 2/10: TrainLoss=0.1225 | ValLoss=0.1052 | ValDice=0.9426
+Epoch 3/10: TrainLoss=0.0903 | ValLoss=0.0807 | ValDice=0.9458
+Epoch 4/10: TrainLoss=0.0726 | ValLoss=0.0683 | ValDice=0.9482
+Epoch 5/10: TrainLoss=0.0623 | ValLoss=0.0615 | ValDice=0.9491
+Epoch 6/10: TrainLoss=0.0562 | ValLoss=0.0562 | ValDice=0.9510
+Epoch 7/10: TrainLoss=0.0519 | ValLoss=0.0527 | ValDice=0.9523
+Epoch 8/10: TrainLoss=0.0489 | ValLoss=0.0511 | ValDice=0.9524
+Epoch 9/10: TrainLoss=0.0466 | ValLoss=0.0503 | ValDice=0.9524
+Epoch 10/10: TrainLoss=0.0448 | ValLoss=0.0484 | ValDice=0.9536
+  ✓ Model saved: MP_Tr_Dice.pth
+
+============================================================
+Training Model 3/4: StrConv+Tr+BCE
+============================================================
+Epoch 1/10: TrainLoss=0.4257 | ValLoss=0.3428 | ValDice=0.9376
+Epoch 2/10: TrainLoss=0.3035 | ValLoss=0.2883 | ValDice=0.9436
+Epoch 3/10: TrainLoss=0.2565 | ValLoss=0.2472 | ValDice=0.9471
+Epoch 4/10: TrainLoss=0.2303 | ValLoss=0.2300 | ValDice=0.9508
+Epoch 5/10: TrainLoss=0.2121 | ValLoss=0.2150 | ValDice=0.9520
+Epoch 6/10: TrainLoss=0.2012 | ValLoss=0.2186 | ValDice=0.9519
+Epoch 7/10: TrainLoss=0.1928 | ValLoss=0.2057 | ValDice=0.9532
+Epoch 8/10: TrainLoss=0.1858 | ValLoss=0.2061 | ValDice=0.9541
+Epoch 9/10: TrainLoss=0.1799 | ValLoss=0.2041 | ValDice=0.9541
+Epoch 10/10: TrainLoss=0.1743 | ValLoss=0.1948 | ValDice=0.9553
+  ✓ Model saved: StrConv_Tr_BCE.pth
+
+============================================================
+Training Model 4/4: StrConv+Ups+Dice
+============================================================
+Epoch 1/10: TrainLoss=0.1513 | ValLoss=0.1221 | ValDice=0.9411
+Epoch 2/10: TrainLoss=0.0987 | ValLoss=0.0852 | ValDice=0.9431
+Epoch 3/10: TrainLoss=0.0774 | ValLoss=0.0726 | ValDice=0.9445
+Epoch 4/10: TrainLoss=0.0654 | ValLoss=0.0644 | ValDice=0.9466
+Epoch 5/10: TrainLoss=0.0578 | ValLoss=0.0590 | ValDice=0.9476
+Epoch 6/10: TrainLoss=0.0531 | ValLoss=0.0535 | ValDice=0.9505
+Epoch 7/10: TrainLoss=0.0499 | ValLoss=0.0513 | ValDice=0.9516
+Epoch 8/10: TrainLoss=0.0478 | ValLoss=0.0502 | ValDice=0.9518
+Epoch 9/10: TrainLoss=0.0460 | ValLoss=0.0496 | ValDice=0.9519
+Epoch 10/10: TrainLoss=0.0443 | ValLoss=0.0469 | ValDice=0.9541
+  ✓ Model saved: StrConv_Ups_Dice.pth
+
+============================================================
+TRAINING SUMMARY - ALL 4 MODELS COMPLETED
+============================================================
+MP+Tr+BCE            - Best Val Dice: 0.9553
+MP+Tr+Dice           - Best Val Dice: 0.9536
+StrConv+Tr+BCE       - Best Val Dice: 0.9553
+StrConv+Ups+Dice     - Best Val Dice: 0.9541
+============================================================
+```
